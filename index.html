@@ -44,8 +44,18 @@ html, body {
   height: 140px;
 }
 
-#tblogo_img:hover {
-  opacity: 0.5;
+/* logo hover effect on desktop */
+@media only screen and (min-width:768px)  {
+	#tblogo_img:hover {
+  		opacity: 0.5;
+	}
+}
+
+/* logo hover effect on mobile */
+@media only screen and (max-width:768px)  {
+	#tblogo_img:active {
+  		opacity: 0.5;
+	}
 }
 
 
@@ -257,7 +267,7 @@ function cartify() {
   	<input type="radio" id="nochange" name="case" value="nochange"> no case change 
 </div>
 
-<div id="dothatshit">
+<div id="buttonsarea">
 <button onclick="cartify()" id="dothatshit">dothatshit!*</button>
 <button onclick="cartify()" id="redothatshit">redothatshit!*</button>
 
