@@ -122,11 +122,10 @@ function cartify() {
 	// replace line break with linebreak AND SPACE
 	cartiOutput = cartiOutput.replace(/(\r\n|\n|\r)/gm," \n");
 	
-	// split into each word based on spaces and possibly add some separator
 	var words = cartiOutput.split(' ');
 	console.log(words);
 	cartiOutput = "";
-	var wordSeperator = ""; // could be just a space, or *+ or !.. or :( etc....
+	var wordSeperator = "";
 	var rand = 1;
 	var lastWordSeperated = false;
 	for (var i = 0; i < words.length; i++) {
@@ -138,7 +137,6 @@ function cartify() {
 		}
 		rand = Math.floor(Math.random() * 2);
 		if (rand == 1 && !lastWordSeperated) {
-			// 21 different options of what the separator can be
 			rand = Math.floor(Math.random() * 21);
 			if (rand == 0) {
 				wordSeperator = " ++** ";
