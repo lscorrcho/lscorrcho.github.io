@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<!--
+playboi carti text generator
+by lance encarnado (2019)
+* bring that money home, daddy waitin for it !
+-->
+
+<html>
+<head>
+
+<meta name="viewport" content="width=650">
+
+<title>Playboi Carti Text Generator **!++</title>
+<style>
+
+html, body, footer {
+	text-align: center;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -140px;
+}
+
+.footer,
+.push {
+  height: 140px;
+}
+
+#tblogo_img:hover {
+  opacity: 0.5;
+}
+
+/* TESTING AREA */
+
+/* 
+input[type='text']:focus,
+input[type='number']:focus,
+textarea:focus {
+	font-size: 16px;
+}
+ */
+
+/* END TESTING AREA */
+
+body, footer, textarea {
+	background-color: #e80b0b;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   	font-weight: 300;
+   	color: #ffffff;
+}
+
+#logo {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+div {
+    padding: 6px;
+    font-size: 13px;
+}
+
+textarea {
+    padding: 6px;
+    font-size:14px;
+    color: black;
+    background-color: #ffffff;
+    width:530px;
+    height:150px;
+    /* border:1px solid #ffffff; */
+}
+
+@media only screen and (max-width: 768px) {
+	textarea {
+		font-size: 20px;
+	}
+}
+
+h1 {
+	padding: 6px;
+	font-size: 30px;
+}
+
+
+.footer {
+  	/* position: fixed; */
+	/* padding-left: 13px; */
+	padding-bottom: 20px;
+  	width: 100%;
+	z-index: -1;
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+
+</style>
+
+<script type="text/javascript">
+
+function cartify() {
+	// get the original text
+	var userInput = document.getElementById("userinput").value;
+	
+	var cartiOutput = userInput;
+	
+	// replace line break with linebreak AND SPACE
+	cartiOutput = cartiOutput.replace(/(\r\n|\n|\r)/gm," \n");
+	
+	// split into each word based on spaces and possibly add some separator
+	var words = cartiOutput.split(' ');
+	console.log(words);
+	cartiOutput = "";
+	var wordSeperator = ""; // could be just a space, or *+ or !.. or :( etc....
+	var rand = 1;
+	var lastWordSeperated = false;
+	for (var i = 0; i < words.length; i++) {
+		// probability 1/2 that there will be some sort of non-space separator after a word
+		// if the last word has a separator, this one won't
+		// unless there's less than 10 words
+		if (words.length < 10) {
+			lastWordSeperated = false;
+		}
+		rand = Math.floor(Math.random() * 2);
+		if (rand == 1 && !lastWordSeperated) {
+			// 21 different options of what the separator can be
+			rand = Math.floor(Math.random() * 21);
+			if (rand == 0) {
+				wordSeperator = " ++** ";
+			} else if (rand == 1) {
+				wordSeperator = " *! +:) ";
+			} else if (rand == 2) {
+				wordSeperator = " +* ";
+			} else if (rand == 3) {
+				wordSeperator = "\! ";
+			} else if (rand == 4) {
+				wordSeperator = " +:) ";
+			} else if (rand == 5) {
+				wordSeperator = " **!++ ";
+			} else if (rand == 6) {
+				wordSeperator = "🦋 ";
+			} else if (rand == 7) {
+				wordSeperator = " ** - ";
+			} else if (rand == 8) {
+				wordSeperator = "🖤& * ";
+			} else if (rand == 9) {
+				wordSeperator = " ..$ ";
+			} else if (rand == 10 || rand == 19) {
+				wordSeperator = " :( 💕 ";
+			} else if (rand == 11) {
+				wordSeperator = " *^! ";
+			} else if (rand == 12) {
+				wordSeperator = " :) xo! ";
+			} else if (rand == 13) {
+				wordSeperator = " ^ 🦋* !+  ";
+			} else if (rand == 14) {
+				wordSeperator = " * ok !+";
+			} else if (rand == 15) {
+				wordSeperator = " ok! ";
+			} else if (rand == 16) {
+				wordSeperator = " . ";
+			} else if (rand == 17) {
+				wordSeperator = " 💔 ";
+			} else if (rand == 18) {
+				wordSeperator = " :( ";
+			} else if (rand == 20) {
+				wordSeperator = " 💔 +** ";
+			}
+			lastWordSeperated = true;
+		} else { // otherwise it's just a space
+			wordSeperator = " ";
+			lastWordSeperated = false;
+		}
+		cartiOutput += words[i] + wordSeperator;
+	}
+	
+	// look for all the punctuation, and add a space before it
+	cartiOutput = cartiOutput.replace(/!/g, ' !')
+	cartiOutput = cartiOutput.replace(/\?/g, ' \?');
+	cartiOutput = cartiOutput.replace(/,/g, ' ,');
+	cartiOutput = cartiOutput.replace(/\./g, ' .');
+	
+	// 4 different beginnings
+	rand = Math.floor(Math.random() * 4);
+	var beginning = "";
+	if (rand == 0) {
+		beginning = "*  *";
+	} else if (rand == 1) {
+		beginning = "*+!:) !!";
+	} else if (rand == 2) {
+		beginning = "🦋🦋🦋";
+	} else if (rand == 3) {
+		beginning = "+* ok ! 🖤"
+	}
+	
+	cartiOutput = beginning + "\n" + cartiOutput;
+	
+	// 6 different endings
+	rand = Math.floor(Math.random() * 6);
+	var ending = "\n";
+	if (rand == 0) {
+		ending += "ok ! * +";
+	} else if (rand == 1) {
+		ending += "*+ _ SLATT !";
+	} else if (rand == 2) {
+		ending += "+:)  🍄🍄🍄";
+	} else if (rand == 3) {
+		ending += "++** +:) love ! Lit **!++";
+	} else if (rand == 4) {
+		ending += "* SLATT _ !";
+	} else if (rand == 5) {
+		ending += "++ 🖤#love *";
+	}
+	
+	cartiOutput += ending;
+	
+	// change case (upper/lower) if necessary
+	
+	if (document.getElementById('upper').checked) {
+  		cartiOutput = cartiOutput.toUpperCase();
+	}
+	else if (document.getElementById('lower').checked) {
+		cartiOutput = cartiOutput.toLowerCase();
+	}
+
+	document.getElementById("cartitext").value = cartiOutput;
+	
+	document.getElementById("cartitext").style.height = "100px";
+	
+	document.getElementById("cartitext").style.height = (document.getElementById("cartitext").scrollHeight) + "px";
+	
+	document.getElementById("copytoclipboard").disabled = false;
+}
+
+function copyText() {
+	var textToCopy = document.getElementById("cartitext");
+	textToCopy.select();
+	document.execCommand("copy");
+	alert("text copied ** - to clipboard ! ");
+}
+
+</script>
+
+</head>
+<body>
+
+<div class="wrapper">
+
+<div id="logo">
+<img src="./textgenimg/textgenlogo_bling.png" alt="Playboi Carti Text Generator" width="625px" >
+</div>
+
+<br>
+<div id="plaintextarea">
+<textarea id="userinput" placeholder="enter your plain text here...">
+</textarea>
+</div>
+<div id="caseselection">
+	<input type="radio" id="lower" name="case" value="lower" checked="checked"> all lowercase
+  	<input type="radio" id="upper" name="case" value="upper"> all uppercase
+  	<input type="radio" id="nochange" name="case" value="nochange"> no case change 
+</div>
+
+<div id="dothatshit">
+<button onclick="cartify()" id="dothatshit">dothatshit!*</button>
+<button onclick="cartify()" id="redothatshit">redothatshit!*</button>
+<button onclick="copyText()" id="copytoclipboard" disabled>copy to clipboard</button>
+<!-- <a href="#" class="myButton" onclick="cartify();return false;">dothatshit!</a> -->
+
+</div>
+<br>
+<div id="cartitextarea">
+<textarea id="cartitext" placeholder="your ! carti text . will :( !^ appear here ++** 🦋" readonly>
+</textarea>
+</div>
+
+<div class="push"></div>
+</div>
+
+<footer class="footer">
+playboi carti text generator
+<br>by @LScorrcho & @chrisorzel (2019)
+<br><br><a href="http://tacklebox.company/"><img id="tblogo_img" alt="Tacklebox" src="./textgenimg/tblogo_bling.png" height="65px"></a>
+</footer>
+
+</body>
+</html>
