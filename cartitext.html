@@ -69,7 +69,7 @@ textarea {
 
 @media only screen and (max-width: 768px) {
 	textarea {
-		font-size: 20px;
+		font-size: 22px;
 	}
 }
 
@@ -113,8 +113,8 @@ function cartify() {
 	for (var i = 0; i < words.length; i++) {
 		// probability 1/2 that there will be some sort of non-space separator after a word
 		// if the last word has a separator, this one won't
-		// unless there's less than 10 words
-		if (words.length < 10) {
+		// unless there's less than 25 words
+		if (words.length < 25) {
 			lastWordSeperated = false;
 		}
 		rand = Math.floor(Math.random() * 2);
@@ -224,15 +224,6 @@ function cartify() {
 	document.getElementById("cartitext").style.height = "100px";
 	
 	document.getElementById("cartitext").style.height = (document.getElementById("cartitext").scrollHeight) + "px";
-	
-	document.getElementById("copytoclipboard").disabled = false;
-}
-
-function copyText() {
-	var textToCopy = document.getElementById("cartitext");
-	textToCopy.select();
-	document.execCommand("copy");
-	alert("text copied ** - to clipboard ! ");
 }
 
 </script>
@@ -260,8 +251,6 @@ function copyText() {
 <div id="dothatshit">
 <button onclick="cartify()" id="dothatshit">dothatshit!*</button>
 <button onclick="cartify()" id="redothatshit">redothatshit!*</button>
-<button onclick="copyText()" id="copytoclipboard" disabled>copy to clipboard</button>
-<!-- <a href="#" class="myButton" onclick="cartify();return false;">dothatshit!</a> -->
 
 </div>
 <br>
@@ -276,7 +265,7 @@ function copyText() {
 <footer class="footer">
 playboi carti text generator
 <br>by @LScorrcho & @chrisorzel (2019)
-<br><br><a href="http://tacklebox.company/"><img id="tblogo_img" alt="Tacklebox" src="./textgenimg/tblogo_bling_1000_8.png" height="65px"></a>
+<br><br><a href="http://tacklebox.company/" target="_blank"><img id="tblogo_img" alt="Tacklebox" src="./textgenimg/tblogo_bling_1000_8.png" height="65px"></a>
 </footer>
 
 </body>
