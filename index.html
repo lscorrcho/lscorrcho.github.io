@@ -24,13 +24,24 @@ coded by @lscorrcho // design by @chrisorzel (2019)
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145096028-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-145096028-2');
+</script>
+
+
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
     google_ad_client: "ca-pub-2008939083406434",
     enable_page_level_ads: true
   });
-</script>
+</script> -->
 
 <style>
 
@@ -72,7 +83,7 @@ html, body {
 
 body, footer, textarea {
 	background-color: #e80b0b;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
    	font-weight: 300;
    	color: #ffffff;
 }
@@ -143,12 +154,12 @@ h1 {
 function cartify() {
 	// get the original text
 	var userInput = document.getElementById("userinput").value;
-	
+
 	var cartiOutput = userInput;
-	
+
 	// replace line break with linebreak AND SPACE
 	cartiOutput = cartiOutput.replace(/(\r\n|\n|\r)/gm," \n");
-	
+
 	var words = cartiOutput.split(' ');
 	cartiOutput = "";
 	var wordSeperator = "";
@@ -212,13 +223,13 @@ function cartify() {
 		}
 		cartiOutput += words[i] + wordSeperator;
 	}
-	
+
 	// look for all the punctuation, and add a space before it
 	cartiOutput = cartiOutput.replace(/!/g, ' !')
 	cartiOutput = cartiOutput.replace(/\?/g, ' \?');
 	cartiOutput = cartiOutput.replace(/,/g, ' ,');
 	cartiOutput = cartiOutput.replace(/\./g, ' .');
-	
+
 	// 4 different beginnings
 	rand = Math.floor(Math.random() * 4);
 	var beginning = "";
@@ -231,9 +242,9 @@ function cartify() {
 	} else if (rand == 3) {
 		beginning = "+* ok ! 🖤"
 	}
-	
+
 	cartiOutput = beginning + "\n" + cartiOutput;
-	
+
 	// 6 different endings
 	rand = Math.floor(Math.random() * 6);
 	var ending = "\n";
@@ -250,11 +261,11 @@ function cartify() {
 	} else if (rand == 5) {
 		ending += "++ 🖤#love *";
 	}
-	
+
 	cartiOutput += ending;
-	
+
 	// change case (upper/lower) if necessary
-	
+
 	if (document.getElementById('upper').checked) {
   		cartiOutput = cartiOutput.toUpperCase();
 	}
@@ -263,9 +274,9 @@ function cartify() {
 	}
 
 	document.getElementById("cartitext").value = cartiOutput;
-	
+
 	document.getElementById("cartitext").style.height = "100px";
-	
+
 	document.getElementById("cartitext").style.height = (document.getElementById("cartitext").scrollHeight) + "px";
 }
 
@@ -288,7 +299,7 @@ function cartify() {
 <div id="caseselection">
 	<input type="radio" id="lower" name="case" value="lower" checked="checked"> all lowercase
   	<input type="radio" id="upper" name="case" value="upper"> all uppercase
-  	<input type="radio" id="nochange" name="case" value="nochange"> no case change 
+  	<input type="radio" id="nochange" name="case" value="nochange"> no case change
 </div>
 
 <div id="buttonsarea">
