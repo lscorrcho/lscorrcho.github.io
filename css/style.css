@@ -1,0 +1,101 @@
+html, body, footer {
+	text-align: center;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -140px;
+}
+
+.footer,
+.push {
+  height: 140px;
+}
+
+/* logo hover effect on desktop */
+@media only screen and (min-width:768px)  {
+	#tblogo_img:hover {
+  		opacity: 0.5;
+	}
+}
+
+/* logo hover effect on mobile */
+@media only screen and (max-width:768px)  {
+	#tblogo_img:active {
+  		opacity: 0.5;
+	}
+}
+
+
+body, footer, textarea {
+	background-color: #e80b0b;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   	font-weight: 300;
+   	color: #ffffff;
+}
+
+#logo {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+div {
+    padding: 6px;
+    font-size: 13px;
+}
+
+textarea {
+    padding: 6px;
+    font-size:14px;
+    color: black;
+    background-color: #ffffff;
+    width:530px;
+    height:150px;
+    /* border:1px solid #ffffff; */
+}
+
+@media only screen and (max-width: 768px) {
+	textarea {
+		font-size: 22px;
+	}
+}
+
+h1 {
+	padding: 6px;
+	font-size: 30px;
+}
+
+
+.footer {
+  	/* position: fixed; */
+	/* padding-left: 13px; */
+	padding-bottom: 20px;
+  	width: 100%;
+	z-index: -1;
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+/* begin ad properties */
+#app_ad {
+	padding-top: 50px;
+	padding-bottom: 20px;
+	font-size: 20px;
+}
+
+#ad_logo {
+	padding-top: 25px;
+}
+
+#download_appstore {
+	padding-top: 30px;
+}
+
+/* end ad properties */

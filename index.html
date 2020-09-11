@@ -24,6 +24,8 @@ coded by @lscorrcho // design by @chrisorzel (2019)
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
+<link rel="stylesheet" href="css/style.css">
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145096028-2"></script>
 <script>
@@ -43,258 +45,19 @@ coded by @lscorrcho // design by @chrisorzel (2019)
   });
 </script> -->
 
-<style>
-
-html, body, footer {
-	text-align: center;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-.wrapper {
-  min-height: 100%;
-  /* Equal to height of footer */
-  /* But also accounting for potential margin-bottom of last child */
-  margin-bottom: -140px;
-}
-
-.footer,
-.push {
-  height: 140px;
-}
-
-/* logo hover effect on desktop */
-@media only screen and (min-width:768px)  {
-	#tblogo_img:hover {
-  		opacity: 0.5;
-	}
-}
-
-/* logo hover effect on mobile */
-@media only screen and (max-width:768px)  {
-	#tblogo_img:active {
-  		opacity: 0.5;
-	}
-}
-
-
-body, footer, textarea {
-	background-color: #e80b0b;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-   	font-weight: 300;
-   	color: #ffffff;
-}
-
-#logo {
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-
-div {
-    padding: 6px;
-    font-size: 13px;
-}
-
-textarea {
-    padding: 6px;
-    font-size:14px;
-    color: black;
-    background-color: #ffffff;
-    width:530px;
-    height:150px;
-    /* border:1px solid #ffffff; */
-}
-
-@media only screen and (max-width: 768px) {
-	textarea {
-		font-size: 22px;
-	}
-}
-
-h1 {
-	padding: 6px;
-	font-size: 30px;
-}
-
-
-.footer {
-  	/* position: fixed; */
-	/* padding-left: 13px; */
-	padding-bottom: 20px;
-  	width: 100%;
-	z-index: -1;
-	font-size: 13px;
-	line-height: 1.4;
-}
-
-/* begin hoodbaby ad properties */
-#hoodbabyad {
-	padding-top: 50px;
-	padding-bottom: 20px;
-	font-size: 20px;
-}
-
-#hoodbaby_logo {
-	padding-top: 25px;
-}
-
-#download_appstore {
-	padding-top: 30px;
-}
-
-/* end hoodbaby ad properties */
-
-</style>
-
-<script type="text/javascript">
-
-function cartify() {
-	// get the original text
-	var userInput = document.getElementById("userinput").value;
-
-	var cartiOutput = userInput;
-
-	// replace line break with linebreak AND SPACE
-	cartiOutput = cartiOutput.replace(/(\r\n|\n|\r)/gm," \n");
-
-	var words = cartiOutput.split(' ');
-	cartiOutput = "";
-	var wordSeperator = "";
-	var rand = 1;
-	var lastWordSeperated = false;
-	for (var i = 0; i < words.length; i++) {
-		// probability 2/3 that there will be some sort of non-space separator after a word
-		// if the last word has a separator, this one won't
-		// unless there's less than 25 words
-		if (words.length < 25) {
-			lastWordSeperated = false;
-		}
-		rand = Math.floor(Math.random() * 3);
-		if (rand != 1 && !lastWordSeperated) {
-			rand = Math.floor(Math.random() * 21);
-			if (rand == 0) {
-				wordSeperator = " ++** ";
-			} else if (rand == 1) {
-				wordSeperator = " *! +:) ";
-			} else if (rand == 2) {
-				wordSeperator = " +* ";
-			} else if (rand == 3) {
-				wordSeperator = "\! ";
-			} else if (rand == 4) {
-				wordSeperator = " +:) ";
-			} else if (rand == 5) {
-				wordSeperator = " **!++ ";
-			} else if (rand == 6) {
-				wordSeperator = "🦋 ";
-			} else if (rand == 7) {
-				wordSeperator = " ** - ";
-			} else if (rand == 8) {
-				wordSeperator = "🖤& * ";
-			} else if (rand == 9) {
-				wordSeperator = " ..$ ";
-			} else if (rand == 10 || rand == 19) {
-				wordSeperator = " :( 💕 ";
-			} else if (rand == 11) {
-				wordSeperator = " *^! ";
-			} else if (rand == 12) {
-				wordSeperator = " :) xo! ";
-			} else if (rand == 13) {
-				wordSeperator = " ^ 🦋* !+  ";
-			} else if (rand == 14) {
-				wordSeperator = " * ok !+";
-			} else if (rand == 15) {
-				wordSeperator = " ok! ";
-			} else if (rand == 16) {
-				wordSeperator = " . ";
-			} else if (rand == 17) {
-				wordSeperator = " 💔 ";
-			} else if (rand == 18) {
-				wordSeperator = " :( ";
-			} else if (rand == 20) {
-				wordSeperator = " 💔 +** ";
-			}
-			lastWordSeperated = true;
-		} else { // otherwise it's just a space
-			wordSeperator = " ";
-			lastWordSeperated = false;
-		}
-		cartiOutput += words[i] + wordSeperator;
-	}
-
-	// look for all the punctuation, and add a space before it
-	cartiOutput = cartiOutput.replace(/!/g, ' !')
-	cartiOutput = cartiOutput.replace(/\?/g, ' \?');
-	cartiOutput = cartiOutput.replace(/,/g, ' ,');
-	cartiOutput = cartiOutput.replace(/\./g, ' .');
-
-	// 4 different beginnings
-	rand = Math.floor(Math.random() * 4);
-	var beginning = "";
-	if (rand == 0) {
-		beginning = "*  *";
-	} else if (rand == 1) {
-		beginning = "*+!:) !!";
-	} else if (rand == 2) {
-		beginning = "🦋🦋🦋";
-	} else if (rand == 3) {
-		beginning = "+* ok ! 🖤"
-	}
-
-	cartiOutput = beginning + "\n" + cartiOutput;
-
-	// 6 different endings
-	rand = Math.floor(Math.random() * 6);
-	var ending = "\n";
-	if (rand == 0) {
-		ending += "ok ! * +";
-	} else if (rand == 1) {
-		ending += "*+ _ SLATT !";
-	} else if (rand == 2) {
-		ending += "+:)  🍄🍄🍄";
-	} else if (rand == 3) {
-		ending += "++** +:) love ! Lit **!++";
-	} else if (rand == 4) {
-		ending += "* SLATT _ !";
-	} else if (rand == 5) {
-		ending += "++ 🖤#love *";
-	}
-
-	cartiOutput += ending;
-
-	// change case (upper/lower) if necessary
-
-	if (document.getElementById('upper').checked) {
-  		cartiOutput = cartiOutput.toUpperCase();
-	}
-	else if (document.getElementById('lower').checked) {
-		cartiOutput = cartiOutput.toLowerCase();
-	}
-
-	document.getElementById("cartitext").value = cartiOutput;
-
-	document.getElementById("cartitext").style.height = "100px";
-
-	document.getElementById("cartitext").style.height = (document.getElementById("cartitext").scrollHeight) + "px";
-}
-
-</script>
-
 </head>
 <body>
 
 <div class="wrapper">
 
 <div id="logo">
-<img src="./textgenimg/cartivoice.png" alt="Carti Text Generator" width="625px" >
+	<img src="./textgenimg/cartivoice.png" alt="Carti Text Generator" width="625px" >
 </div>
 
 <br>
 <div id="plaintextarea">
-<textarea id="userinput" placeholder="enter your plain text here...">
-</textarea>
+	<textarea id="userinput" placeholder="enter your plain text here...">
+	</textarea>
 </div>
 <div id="caseselection">
 	<input type="radio" id="lower" name="case" value="lower" checked="checked"> all lowercase
@@ -303,21 +66,21 @@ function cartify() {
 </div>
 
 <div id="buttonsarea">
-<button onclick="cartify()" id="dothatshit">dothatshit!*</button>
-<button onclick="cartify()" id="redothatshit">redothatshit!*</button>
-
+	<button onclick="cartify()" id="dothatshit">dothatshit!*</button>
+	<button onclick="cartify()" id="redothatshit">redothatshit!*</button>
 </div>
+
 <br>
 <div id="cartitextarea">
-<textarea id="cartitext" placeholder="your ! carti text . will :( !^ appear here ++** 🦋" readonly>
-</textarea>
+	<textarea id="cartitext" placeholder="your ! carti text . will :( !^ appear here ++** 🦋" readonly>
+	</textarea>
 </div>
 
 <!-- start hoodbaby surf ad -->
-<div id="hoodbabyad">
-Try it now:
-<p><a href="https://apps.apple.com/us/app/hoodbabysurf/id1469347552?ls=1" target="_blank"><img id="hoodbaby_logo" alt="#HoodBabySurf" src="./textgenimg/hoodbaby_logo.png" width="320px"></a>
-<p><a href="https://apps.apple.com/us/app/hoodbabysurf/id1469347552?ls=1" target="_blank"><img id="download_appstore" alt="Download #HoodBabySurf on the App Store" src="./textgenimg/download_appstore.png" width="140px"></a>
+<div id="app_ad">
+	Try it now:
+	<p><a href="https://apps.apple.com/us/app/hoodbabysurf/id1469347552?ls=1" target="_blank"><img id="ad_logo" alt="Trapped On Cleveland" src="./textgenimg/trappedoncleveland.png" width="320px"></a>
+	<!-- <p><a href="https://apps.apple.com/us/app/hoodbabysurf/id1469347552?ls=1" target="_blank"><img id="download_appstore" alt="Download #HoodBabySurf on the App Store" src="./textgenimg/download_appstore.png" width="140px"></a> -->
 </div>
 <!-- end hoodbaby surf ad -->
 
@@ -325,10 +88,12 @@ Try it now:
 </div>
 
 <footer class="footer">
-playboi carti text generator
-<br>by @LScorrcho & @chrisorzel (2019)
-<br><br><a href="https://tacklebox.company/" target="_blank"><img id="tblogo_img" alt="Tacklebox" src="./textgenimg/tblogo_bling_1000_8.png" height="65px"></a>
+	playboi carti text generator
+	<br>by @LScorrcho & @chrisorzel (2019)
+	<br><br><a href="https://tacklebox.company/" target="_blank"><img id="tblogo_img" alt="Tacklebox" src="./textgenimg/tblogo_bling_1000_8.png" height="65px"></a>
 </footer>
+
+<script src="js/index.js"></script>
 
 </body>
 </html>
